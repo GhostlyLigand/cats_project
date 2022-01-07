@@ -9,6 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="./styles/normalize.css">
       <link rel="stylesheet" href="./styles/styles.css">
+      <script src="./script/main.js" defer></script>
    </head>
    <body>
       <div class="container">
@@ -17,63 +18,49 @@
             <h1 class="header__title">Котики</h1>
          </header>
          <body>
-            <section class="kitties">
-               <article class="kitty">
-                  <a href="#" class="button button_delete"></a>
-                  <img src="./src/taison.jpg" alt="Тайсон" class="kitty__image">
-                  <h3 class="kitty__name">
-                     Тайсон
-                  </h3>
-                  <p class="kitty__info">
-                     Тайсон, 4 года. Хоть и чистокровный шотладнец, но проживает почему-то в Ярославле.
-                     Любит покушать и поспать. А ещё точить когти, что очень не нравится его человекам.
-                  </p>
-               </article>
-               <article class="kitty">
-                  <a href="#" class="button button_delete"></a>
-                  <img src="./src/maya.jpg" alt="Тайсон" class="kitty__image">
-                  <h3 class="kitty__name">
-                     Майя
-                  </h3>
-                  <p class="kitty__info">
-                     Тайская кошечка
-                  </p>
-               </article>
-               <article class="kitty">
-                  <a href="#" class="button button_delete"></a>
-                  <img src="./src/lelik.jpg" alt="Тайсон" class="kitty__image">
-                  <h3 class="kitty__name">
-                     Лелик
-                  </h3>
-                  <p class="kitty__info">
-                     Американский кинорежиссёр, сценарист, актёр, кинопродюсер, кинооператор и писатель.
-                     Один из наиболее ярких представителей постмодернизма в кинематографе.
-                  </p>
-               </article>
-               <article class="kitty">
-                  <a href="#" class="button button_delete"></a>
-                  <img src="./src/boleek.jpg" alt="Тайсон" class="kitty__image">
-                  <h3 class="kitty__name">
-                     Болик
-                  </h3>
-                  <p class="kitty__info">
-                     Один из центральных персонажей легендариума Джона Р. Р. Толкина, в частности, повести «Хоббит,
-                     или Туда и обратно» и романа «Властелин колец». Упоминается также в посмертно изданном произведении
-                     «Сильмариллион», в «Походе к Эребору» и некоторых других работах Толкина.
-                  </p>
-               </article>
-               <article class="kitty">
-                  <a href="#" class="button button_delete"></a>
-                  <img src="./src/john.jpg" alt="Тайсон" class="kitty__image">
-                  <h3 class="kitty__name">
-                     Выживший
-                  </h3>
-                  <p class="kitty__info">
-                     Я обязательно выживу.
-                  </p>
-               </article>
-            </section>
+            <section class="kitties"></section>
          </body>
+      </div>
+      <template id = kittyTemplate>
+         <article class = "kitty"> 
+            <a href="#" class="button button_edit"></a>
+            <a href="#" class="button button_delete"></a>
+            <img src="" alt="" class="kitty__image">
+            <h3 class="kitty__name"></h3>
+            <p class="kitty__info"></p>
+        </article>
+      </template>
+      <div id="kittyPopup" class="overlay">
+         <div class="popup">
+            <h2>Введите информацию о котике</h2>
+            <a class="popup__close" href="#">&times;</a>
+            <form class="kitty-form">
+               <div class="form-group">
+                  <label class="form-group__label" for="name">Имя: </label>
+                  <div class="form-group__container">
+                     <input name="name" class="form-group__input" type="text" minlength="2" required />
+                     <span class="form-group__input-error"></span>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="form-group__label" for="about">О котике: </label>
+                  <div class="form-group__container">
+                     <input name="about" class="form-group__input" type="text" minlength="10" required />
+                     <span class="form-group__input-error"></span>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="form-group__label" for="url">URL фото котика: </label>
+                  <div class="form-group__container">
+                     <input name="url" class="form-group__input" type="url" required />
+                     <span class="form-group__input-error"></span>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <button class="my-form__submit" type="submit">Отправить</button>
+               </div>
+            </form>
+         </div>
       </div>
    </body>
 </html>
